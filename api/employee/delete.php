@@ -24,7 +24,7 @@ $employee->id = isset($data->id) ? $data->id : die();
 try{
     if($employee->delete()){
         echo json_encode(
-            array("message" => "Content was deleted"), JSON_UNESCAPED_UNICODE
+            array("message" => "Employee was deleted"), JSON_UNESCAPED_UNICODE
         );
     } else {
         echo json_encode(
