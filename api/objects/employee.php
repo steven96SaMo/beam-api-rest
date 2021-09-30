@@ -77,33 +77,30 @@ class Employee {
 
     // Update
     function update(){
-        function update(){
-        
-            // select all query
-            $query = "UPDATE tbl_employee
-                        SET  name = :name, date_of_birth = :date_of_birth, country = :country, username = :username, 
-                        hiring_date = :hiring_date, state = :state, area = :area, jobTitle = :jobTitle, 
-                        commission = :commission
-                        WHERE id = :id";
-            // prepare query statement
-            $stmt = $this->conn->prepare($query, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
-    
-            $stmt->bindParam(':id', $this->id);
-            $stmt->bindParam(':name', $this->name);
-            $stmt->bindParam(':date_of_birth', $this->dateOfBirth);
-            $stmt->bindParam(':country', $this->country);
-            $stmt->bindParam(':username', $this->userName);
-            $stmt->bindParam(':hiring_date', $this->hiringDate);
-            $stmt->bindParam(':state', $this->state);
-            $stmt->bindParam(':area', $this->area);
-            $stmt->bindParam(':jobTitle', $this->jobTitle);
-            $stmt->bindParam(':commission', $this->commission);
-            // execute query
-            if($stmt->execute()){
-                return true;
-            }
-            return false;
+        // select all query
+        $query = "UPDATE tbl_employee
+                    SET  name = :name, date_of_birth = :date_of_birth, country = :country, username = :username, 
+                    hiring_date = :hiring_date, state = :state, area = :area, jobTitle = :jobTitle, 
+                    commission = :commission
+                    WHERE id = :id";
+        // prepare query statement
+        $stmt = $this->conn->prepare($query, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':name', $this->name);
+        $stmt->bindParam(':date_of_birth', $this->dateOfBirth);
+        $stmt->bindParam(':country', $this->country);
+        $stmt->bindParam(':username', $this->userName);
+        $stmt->bindParam(':hiring_date', $this->hiringDate);
+        $stmt->bindParam(':state', $this->state);
+        $stmt->bindParam(':area', $this->area);
+        $stmt->bindParam(':jobTitle', $this->jobTitle);
+        $stmt->bindParam(':commission', $this->commission);
+        // execute query
+        if($stmt->execute()){
+            return true;
         }
+        return false;
     }
 
     // Delete
